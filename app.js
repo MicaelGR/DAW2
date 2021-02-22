@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const WebSocketServer = require("ws").Server;
+const http = require('http');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
@@ -11,6 +13,9 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/views'));
 app.use(bodyParser.urlencoded({ extended: false}));
+
+var server = http.createServer(app);
+server.listen(port);
 
 // Routes
 const authRoute = require('./routes/auth');
@@ -34,4 +39,3 @@ mongoose.connect(uri, options, function(error){
     error ? console.log(error) : console.log('connected to DB');
 });
 
-app.listen(PORT);
