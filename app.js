@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const path = require('path');
+const port = process.env.PORT || 5000;
 
 dotenv.config();
 app.use(bodyParser.json());
@@ -33,4 +34,4 @@ mongoose.connect(uri, options, function(error){
     error ? console.log(error) : console.log('connected to DB');
 });
 
-app.listen(9999);
+app.listen(PORT);
