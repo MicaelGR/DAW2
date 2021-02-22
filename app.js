@@ -7,10 +7,10 @@ const path = require('path');
 
 dotenv.config();
 app.use(bodyParser.json());
-
+/*
 app.get('/', (req, res) => {
     res.redirect('./login.html');
-});
+});*/
 
 app.use(express.static(__dirname + '/views'));
 app.use(bodyParser.urlencoded({ extended: false}));

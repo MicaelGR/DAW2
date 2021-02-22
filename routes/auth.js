@@ -3,6 +3,10 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const { registerValidationSchema, loginValidationSchema } = require('../validation');
 
+router.get('/', (req, res) => {
+    res.redirect('./login.html');
+});
+
 router.post('/register', async (req, res) => {
     // Valida de los parámetros
     const { error, value } = registerValidationSchema(req.body);
